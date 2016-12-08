@@ -9,9 +9,10 @@ or:
 or:
     rerun sh -c "clear; py.test -q --ignore=first_attempt"
 
+Codechef says:
+    Correct Answer
+    Execution Time: 1.06
 """
-import collections
-import math
 import sys
 
 def read_case(stream):
