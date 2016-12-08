@@ -1,3 +1,4 @@
+from io import StringIO
 from textwrap import dedent
 from unittest.mock import patch
 
@@ -23,8 +24,7 @@ def get_4_line_input():
     """)
 
 def get_input():
-    myinput = "2\n" + get_3_line_input() + get_4_line_input()
-    return iter(myinput.splitlines())
+    return StringIO("2\n" + get_3_line_input() + get_4_line_input())
 
 def get_case(length):
     assert 0 <= length < 4
@@ -35,7 +35,7 @@ def get_case(length):
     ][:length]
 
 def test_read_case_should_read_stream_to_create_lists_of_values():
-    myinput = iter((get_3_line_input() + 'end').splitlines())
+    myinput = StringIO(get_3_line_input() + 'end')
 
     actual = sumtri.read_case(myinput)
 
