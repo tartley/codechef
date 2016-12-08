@@ -36,10 +36,10 @@ def get_parents(parent_row, index):
     return [parent_row[index - 1], parent_row[index]]
 
 def new_maxes(old, row):
-    result = []
-    for i, n in enumerate(row):
-        result.append(n + max( get_parents(old, i) ))
-    return result
+    return [
+        n + max( get_parents(old, i) )
+        for i, n in enumerate(row)
+    ]
 
 def get_max_path(case):
     maxes = []
