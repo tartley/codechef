@@ -27,17 +27,15 @@ def read_cases(stream):
         yield read_case(stream)
 
 def get_parents(parent_row, index):
-    if parent_row == []:
-        return [0]
-    if index == 0:
-        return [parent_row[0]]
-    if index == len(parent_row):
-        return [parent_row[index - 1]]
-    return [parent_row[index - 1], parent_row[index]]
+    return [
+        parent_row[i]
+        for i in range(index - 1, index + 1)
+        if 0 <= i < len(parent_row)
+    ]
 
 def new_maxes(old, row):
     return [
-        n + max( get_parents(old, i) )
+        n + max(get_parents(old, i) + [0])
         for i, n in enumerate(row)
     ]
 

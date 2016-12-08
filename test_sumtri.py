@@ -52,7 +52,7 @@ def test_read_cases_should_return_a_list_of_cases(my_read_case):
     assert list(actual) == ['case1', 'case2']
 
 def test_get_parents():
-    assert sumtri.get_parents([], 0) == [0]
+    assert sumtri.get_parents([], 0) == []
     assert sumtri.get_parents([1], 0) == [1]
     assert sumtri.get_parents([1], 1) == [1]
     assert sumtri.get_parents([2, 3], 0) == [2]
